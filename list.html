@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="content">
+      <div>
+        <label for="item">Item</label>
+        <input type="text" id="item">
+      </div>
+      <button id="button">Add Item</button>
+    <ul></ul>
+  </div>
+</div>
+<script>
+  const itemName = document.getElementById('item')
+  const addButton = document.getElementById('button')
+  const myList = document.querySelector('ul');
+  function addItem(){
+      let item = itemName.value
+      itemName.value = ""
+    let newElement = document.createElement('li');
+      newElement.textContent = item
+    myList.insertAdjacentElement('afterbegin', newElement);
+
+      newElement.addEventListener('click', function(e){
+          let unwantedElement = document.querySelector('li');
+          unwantedElement.remove();
+      })
+
+  }
+  addButton.addEventListener('click', addItem);
+
+</script>
+</body>
+</html>

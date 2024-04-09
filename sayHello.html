@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="content">
+      <div>
+        <label for="first">First Name</label>
+        <input type="text" id="first">
+      </div>
+    <div class="row">
+      <div>
+        <label for="last">Last Name</label>
+        <input type="text" id="last">
+      <button id="button">Say Hello</button>
+      </div>
+    </div>
+    <ul></ul>
+  </div>
+</div>
+<script>
+    const firstName = document.getElementById('first')
+    const lastName = document.getElementById('last')
+    const button = document.getElementById('button')
+
+    const yourName = document.querySelector('ul');
+
+    function addName(){
+        let first = firstName.value;
+        let last = lastName.value;
+        let fullName = `${first} ${last}`;
+        firstName.value = "";
+        lastName.value = "";
+
+        let newElement = document.createElement('p');
+        newElement.textContent = `${fullName}`;
+        yourName.insertAdjacentElement('afterbegin', newElement);
+    }
+    /*
+    Make a tag
+    Fill the tag
+    Place the tag
+     */
+
+    button.addEventListener('click', addName);
+
+
+</script>
+</body>
+</html>
