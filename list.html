@@ -28,7 +28,7 @@
     myList.insertAdjacentElement('afterbegin', newElement);
 
       newElement.addEventListener('click', function(e){
-          let unwantedElement = document.querySelector('li');
+          let unwantedElement = newElement
           unwantedElement.remove();
       })
 
