@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+    <style>
+        .red{
+            background-color: darkred;
+        }
+        .blue{
+            background-color: midnightblue;
+        }
+        .purple{
+            background-color: rebeccapurple;
+        }
+        .black{
+            background-color: black;
+        }
+        .grey{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <button id="remove">button</button>
+      <p></p>
+      <div id="bgc">
+         <button id="color">color</button>
+          <ul>
+              <li>red</li>
+              <li>blue</li>
+              <li>purple</li>
+              <li>black</li>
+              <li>grey</li>
+          </ul>
+          <button id="stop">Stop</button>
+      </div>
+  </div>
+</div>
+</body>
+<script>
+    const colorList = ['red', 'blue', 'purple', 'black', 'grey']
+
+  const removeButton = document.getElementById('remove');
+
+  removeButton.addEventListener('click', function(){
+          setTimeout(function(){
+              console.log("clicked and removed")
+
+              removeButton.remove();
+
+          }, 3000);
+    })
+
+  const background = document.getElementById("bgc")
+
+  const colorButton = document.getElementById("color");
+  colorButton.addEventListener('click', function(){
+      setInterval(function() {
+          console.log("happens every 5 sec")
+
+              background.add(colorList)
+          }, 5000);
+  })
+
+    const stopButton = document.getElementById('stop')
+
+    stopButton.addEventListener('click', function () {
+        if (interval) {
+            clearInterval(interval);
+            interval = background;
+        }
+    })
+
+</script>
+</html>
